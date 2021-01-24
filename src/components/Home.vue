@@ -2,9 +2,7 @@
     <div class="container">
         <h1 :title="title" v-text="mainTitle"></h1>
         <ul>
-            <li v-for="(todo, index) in inCompletedTodo" :key="todo.title + index">
-               {{todo.title}} <input type="checkbox" name="" id="" v-model="todo.status">     
-            </li>
+            <Todo v-for="(todo, index) in inCompletedTodo" :title="todo.title" :status="todo.status" :key="todo.title+index" @clicked="toggleStatus(todo)"/>
         </ul>
         
         <input v-model="newTodo.title" placeholder="todo title" @input="handleChange">
@@ -14,13 +12,15 @@
         <div class="completed-todo">
             <h1>All the completed todos are here</h1>
             <ul>
-                <li v-for="todo in completedTodo" v-text="todo.title" :key="todo.title"></li>
+                <Todo v-for="todo in completedTodo" :title="todo.title" :status="todo.status" :key="todo.title" @clicked="toggleStatus(todo)" />
             </ul>
         </div>
     </div>
 </template>
 
 <script>
+import Todo from './Todo';
+
 export default {
   name: 'Home',
   data() {
@@ -55,7 +55,10 @@ export default {
 
           this.error = "";
           this.isDisable = false;
-     } 
+     },
+     toggleStatus (todo) {
+         todo.status = !todo.status;
+     }
   },
   computed: {
       completedTodo () {
@@ -64,6 +67,9 @@ export default {
       inCompletedTodo () {
           return this.todos.filter(t => !t.status);
       }
+  },
+  components: {
+      Todo
   }
 }
 </script>
