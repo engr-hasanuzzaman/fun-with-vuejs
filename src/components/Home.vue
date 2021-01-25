@@ -1,17 +1,19 @@
 <template>
-    <div class="container">
-        <h1 :title="title" v-text="mainTitle"></h1>
-        <ul>
-            <Todo v-for="(todo, index) in inCompletedTodo" :title="todo.title" :status="todo.status" :key="todo.title+index" @clicked="toggleStatus(todo)"/>
-        </ul>
-        
-        <input v-model="newTodo.title" placeholder="todo title" @input="handleChange">
-        <p class="error">{{error}}</p>
-        <button @click="addTodo" :disabled="isDisable">Add Todo</button>
-
-        <div class="completed-todo">
+    <div class="w-md mx-auto flex px-10">
+        <div class="flex-1">
+            <input v-model="newTodo.title" placeholder="todo title" @input="handleChange">
+            <p class="error">{{error}}</p>
+            <button @click="addTodo" :disabled="isDisable" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled">Add Todo</button>
+        </div>
+        <div class="flex-1 mx-5">
+            <h1 :title="title" v-text="mainTitle"></h1>
+            <ul class="bg-blue-700">
+                <Todo v-for="(todo, index) in inCompletedTodo" :title="todo.title" :status="todo.status" :key="todo.title+index" @clicked="toggleStatus(todo)"/>
+            </ul>
+        </div>
+        <div class="flex-1">
             <h1>All the completed todos are here</h1>
-            <ul>
+            <ul class="flex items-center">
                 <Todo v-for="todo in completedTodo" :title="todo.title" :status="todo.status" :key="todo.title" @clicked="toggleStatus(todo)" />
             </ul>
         </div>
