@@ -1,6 +1,6 @@
 <template>
-    <div class="todo-container" v-bind:class="containerClass">
-        <span v-text="title">{{title}}</span>
+    <div class="rounded border-gray-100 border-2 flex h-10 items-center pl-5" v-bind:class="containerClass">
+        <span v-text="title" class="mr-5">{{title}}</span>
         <input type="checkbox" name="status" v-model="status" @click="clicked">
     </div>
 </template>

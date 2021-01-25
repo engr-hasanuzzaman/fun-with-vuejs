@@ -1,27 +1,16 @@
 <template>
-    <div class="w-md mx-auto flex px-10">
+    <div class="w-md mx-auto flex space-x-10 mt-10 px-10">
         <div class="flex-1">
-            <input v-model="newTodo.title" placeholder="todo title" @input="handleChange">
-            <p class="error">{{error}}</p>
-            <button @click="addTodo" :disabled="isDisable" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded disabled">Add Todo</button>
+            <TodoForm @newTodoAdded="addTodo"></TodoForm>
         </div>
-        <div class="flex-1 mx-5">
-            <h1 :title="title" v-text="mainTitle"></h1>
-            <ul class="bg-blue-700">
-                <Todo v-for="(todo, index) in inCompletedTodo" :title="todo.title" :status="todo.status" :key="todo.title+index" @clicked="toggleStatus(todo)"/>
-            </ul>
-        </div>
-        <div class="flex-1">
-            <h1>All the completed todos are here</h1>
-            <ul class="flex items-center">
-                <Todo v-for="todo in completedTodo" :title="todo.title" :status="todo.status" :key="todo.title" @clicked="toggleStatus(todo)" />
-            </ul>
-        </div>
+        <TodoList title="Pending" :todos="inCompletedTodo" @clicked="toggleStatus"></TodoList>
+        <TodoList title="Completed" :todos="completedTodo" @clicked="toggleStatus"></TodoList>
     </div>
 </template>
 
 <script>
-import Todo from './Todo';
+import TodoList from './TodoList';
+import TodoForm from './NewTodo';
 
 export default {
   name: 'Home',
@@ -30,36 +19,16 @@ export default {
         todos: [
             {title: "Sleep", status: false }
             ],
-        newTodo: {title: '', status: false},
-        error: '',
         title: 'custom title',
-        isDisable: true,
         mainTitle: "Remaining todos",
     }
   },
   methods: {
-      addTodo() {
-          if (this.newTodo.title.trim().length === 0) {
-              return this.error = "Title is required";
-          }
-
-          this.todos = [...this.todos, {...this.newTodo}];
-          this.error = '';
-          this.newTodo.title = '';
-          this.isDisable = true;    
-      },
-     handleChange() {
-         if (this.newTodo.title.trim().length === 0) {
-              this.error = "Title is required";
-              this.isDisable = true;
-              return;
-          }
-
-          this.error = "";
-          this.isDisable = false;
-     },
      toggleStatus (todo) {
          todo.status = !todo.status;
+     },
+     addTodo(todo) {
+         this.todos = [...this.todos, {...todo}];
      }
   },
   computed: {
@@ -71,7 +40,8 @@ export default {
       }
   },
   components: {
-      Todo
+      TodoList,
+      TodoForm
   }
 }
 </script>
