@@ -1,8 +1,8 @@
 <template>
     <div class="containerer">
-        <slot name="header" />
+        <Header></Header>
         <slot name="content" />
-        <slot name="footer" />
+        <Footer></Footer>
     </div>
 </template>
 
@@ -12,7 +12,7 @@ import Footer from './Footer';
 
 export default {
     name: "Application",
-    template: {
+    components: {
         Header,
         Footer
     }

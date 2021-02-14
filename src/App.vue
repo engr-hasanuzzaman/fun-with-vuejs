@@ -1,14 +1,20 @@
 <template>
-  <Home />
+  <Application>
+    <template v-slot:content>
+      <Home />
+    </template>
+  </Application>
 </template>
 
 <script>
-import Home from './components/Home.vue'
+import Home from './components/Home.vue';
+import Application from './components/Application';
 
 export default {
   name: 'App',
   components: {
-    Home
+    Home,
+    Application,
   }
 }
 </script>
