@@ -16,8 +16,9 @@ export default {
     }
     ,
     watch: {
-        clickCounter(old, newVal) {
+        clickCounter(newVal, old) {
             console.log("clickCounter is being updated", old, newVal);
+            this.clickCounter = newVal;
         }
     },
     computed: {
@@ -27,7 +28,7 @@ export default {
                 return this.clickCounter + 10;
             },
             set: function (clickCounter) {
-                console.log("tenTimeCounter ", clickCounter);
+                console.log("tenTimeCounter set", clickCounter);
             }
             
         }
