@@ -1,23 +1,11 @@
 <template>
-  <!-- <Application>
-    <template v-slot:content>
-      <Home />
-    </template>
-  </Application> -->
-  <LifeCycle v-bind:clickCounter="counter" v-on:clicked="increment"/>
+  <router-view></router-view>
 </template>
 
 <script>
-// import Home from './components/Home.vue';
-// import Application from './components/Application';
-import LifeCycle from './components/LifeCycle';
-
 export default {
   name: 'App',
   components: {
-    // Home,
-    // Application,
-    LifeCycle
   },
   data () {
     return {

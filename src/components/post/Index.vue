@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { fetchPosts } from './Api';
+// import { fetchPosts } from './Api';
 export default {
     name: "PostsPage",
     data() {
@@ -17,8 +17,8 @@ export default {
         }
     },
     created: function () {
-        const posts = fetchPosts();
-        this.posts = [...this.posts, ...posts];
+        // const posts = fetchPosts();
+        // this.posts = [...this.posts, ...posts];
     }
 }
 </script>
