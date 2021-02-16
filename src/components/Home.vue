@@ -1,16 +1,21 @@
 <template>
-    <div class="w-md mx-auto flex space-x-10 mt-10 px-10">
-        <div class="flex-1">
-            <TodoForm @newTodoAdded="addTodo"></TodoForm>
+    <div>
+        <Header />
+        <div class="w-md mx-auto flex space-x-10 mt-10 px-10">
+            <div class="flex-1">
+                <TodoForm @newTodoAdded="addTodo"></TodoForm>
+            </div>
+            <TodoList title="Pending" :todos="inCompletedTodo" @clicked="toggleStatus"></TodoList>
+            <TodoList title="Completed" :todos="completedTodo" @clicked="toggleStatus"></TodoList>
         </div>
-        <TodoList title="Pending" :todos="inCompletedTodo" @clicked="toggleStatus"></TodoList>
-        <TodoList title="Completed" :todos="completedTodo" @clicked="toggleStatus"></TodoList>
     </div>
+    
 </template>
 
 <script>
 import TodoList from './TodoList';
 import TodoForm from './NewTodo';
+import Header from './Header';
 
 export default {
   name: 'Home',
@@ -41,7 +46,8 @@ export default {
   },
   components: {
       TodoList,
-      TodoForm
+      TodoForm,
+      Header,
   }
 }
 </script>

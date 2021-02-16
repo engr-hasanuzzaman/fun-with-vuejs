@@ -1,6 +1,13 @@
 <template>
     <div class="h-12 bg-green-100 flex items-center justify-center">
-        <h1>Menu section will goes here</h1>
+        <ul>
+            <li>
+                <router-link to="/todos">Todo</router-link>
+            </li>
+            <li>
+                <router-link to="/posts">Post</router-link>
+            </li>
+        </ul>
     </div>
 </template>
 
