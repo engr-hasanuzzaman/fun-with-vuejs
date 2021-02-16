@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>The number of clicked is: {{tenTimeCounter}}</p>
-        <button @click="$emit('clicked')"></button>
+        <button @click="$emit('clicked')"> Increment </button>
     </div>
 </template>
 
@@ -16,17 +16,18 @@ export default {
     }
     ,
     watch: {
-        clickCounter() {
-
+        clickCounter(old, newVal) {
+            console.log("clickCounter is being updated", old, newVal);
         }
     },
     computed: {
         tenTimeCounter: {
-            get: () => {
+            get: function () {
+                console.log("tenTimeCounter get");
                 return this.clickCounter + 10;
             },
-            set: (clickCounter) => {
-                console.log("new counter value is ", clickCounter);
+            set: function (clickCounter) {
+                console.log("tenTimeCounter ", clickCounter);
             }
             
         }

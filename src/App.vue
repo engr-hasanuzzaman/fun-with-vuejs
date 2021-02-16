@@ -1,20 +1,33 @@
 <template>
-  <Application>
+  <!-- <Application>
     <template v-slot:content>
       <Home />
     </template>
-  </Application>
+  </Application> -->
+  <LifeCycle v-bind:clickCounter="counter" v-on:clicked="increment"/>
 </template>
 
 <script>
-import Home from './components/Home.vue';
-import Application from './components/Application';
+// import Home from './components/Home.vue';
+// import Application from './components/Application';
+import LifeCycle from './components/LifeCycle';
 
 export default {
   name: 'App',
   components: {
-    Home,
-    Application,
+    // Home,
+    // Application,
+    LifeCycle
+  },
+  data () {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    increment(){
+      this.counter++;
+    }
   }
 }
 </script>
