@@ -1,3 +1,7 @@
 /* @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities"; */
+
+.router-link-active {
+    background-color: rgba(0, 0, 200, 200);
+}
