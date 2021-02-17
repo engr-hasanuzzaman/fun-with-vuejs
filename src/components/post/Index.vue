@@ -9,7 +9,7 @@
 </template>
 
 <script>
-// import { fetchPosts } from './Api';
+import { fetchPosts } from './Api';
 import Header from '../Header';
 
 export default {
@@ -19,9 +19,11 @@ export default {
             posts: [],
         }
     },
-    created: function () {
-        // const posts = fetchPosts();
-        // this.posts = [...this.posts, ...posts];
+    created: async function () {
+        const posts = await fetchPosts();
+    /* eslint-disable no-debugger */
+        // debugger;
+        this.posts = [...this.posts, ...posts];
     },
     components: {
         Header

@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 import Todos from '../components/Home';
 import PostsPage from '../components/post/Index';
 
