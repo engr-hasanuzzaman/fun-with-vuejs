@@ -1,7 +1,7 @@
 <template>
     <div class="h-12 bg-green-100 flex items-center justify-center">
-        <router-link to="/todos" class="flex w-16 h-8 items-center justify-center bg-blue-200">Todo</router-link>
-        <router-link to="/posts" class="flex w-16 h-8 items-center justify-center bg-blue-200">Post</router-link>
+        <router-link to="/todos" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium mx-4">Todo</router-link>
+        <router-link to="/posts" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Post</router-link>
     </div>
 </template>
 

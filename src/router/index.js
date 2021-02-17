@@ -14,4 +14,5 @@ const routes = [
 export default new Router({
   routes,
   mode:'history',
+  linkActiveClass: 'bg-gray-900',
 })
