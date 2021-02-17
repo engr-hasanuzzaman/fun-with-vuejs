@@ -1,9 +1,11 @@
 <template>
     <div class="container">
         <Header />
-        <h1>List of fetch posts</h1>
+        <h1 class="text-xl text-center my-2 font-bold">List of fetch posts</h1>
         <ul>
-            <li v-for="post in posts" :key="post.id"> {{post.title}} </li>
+            <li v-for="post in posts" :key="post.id" class="border-2 border-purple-100 m-2"> 
+                <p class="p-4">{{post.title}}</p>
+            </li>
         </ul>
     </div>
 </template>
