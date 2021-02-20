@@ -11,9 +11,9 @@
 </template>
 
 <script>
-// import { fetchPosts } from './Api';
+
 import Header from '../Header';
-import {mapGetters} from 'vuex';
+import {mapGetters, mapActions} from 'vuex';
 
 export default {
     name: "PostsPage",
@@ -22,17 +22,17 @@ export default {
             posts: [],
         }
     },
+    methods: {
+        ...mapActions(['fetchTodos']),
+    },
     created: async function () {
-        // const posts = await fetchPosts();
-    /* eslint-disable no-debugger */
-        // debugger;
-        // this.posts = [...this.posts, ...posts];
+       this.fetchTodos();
     },
     components: {
         Header
     },
     computed: {
         ...mapGetters(['allTodos']),
-    }
+    },
 }
 </script>

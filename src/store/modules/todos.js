@@ -1,27 +1,24 @@
+import {fetchPosts} from '../../components/post/Api';
+
 const state = {
-    todos: [
-        {
-            title: "Vuex1 title",
-            body: "Vuex1 title",
-            userId: 1,
-            id: 1,
-        },
-        {
-            title: "Vuex1 title",
-            body: "Vuex1 title",
-            userId: 1,
-            id: 2,
-        }
-    ]
+    todos: []
 };
 
 const getters = {
     allTodos: (state) => state.todos,
 };
 
-const actions = {};
+const actions = {
+    async fetchTodos ({commit}) {
+        const posts = await fetchPosts();
+        commit('setTodos', posts);
+    }
+};
 
-const mutations = {};
+const mutations = {
+    setTodos: (state, todos) => (state.todos = todos),
+    updateTodo: (state, todo) => (state.todos = state.todos.map(o => o.id === todo.id ? todo : o))
+};
 
 export default {
     state,
