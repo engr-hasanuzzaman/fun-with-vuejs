@@ -5,7 +5,7 @@
         <ul>
             <li v-for="post in allTodos" :key="post.id" class="border-2 border-purple-100 m-2 display flex"> 
                 <p class="p-4">{{post.title}}</p>
-                <button @click="handleDeletePost(post.id)" class="text-red">Delete</button>
+                <button @click="handleDeletePost(post.id)" class="text-red-500">Delete</button>
             </li>
         </ul>
     </div>
