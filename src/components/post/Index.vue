@@ -3,8 +3,9 @@
         <Header />
         <h1 class="text-xl text-center my-2 font-bold">List of fetch posts</h1>
         <ul>
-            <li v-for="post in allTodos" :key="post.id" class="border-2 border-purple-100 m-2"> 
+            <li v-for="post in allTodos" :key="post.id" class="border-2 border-purple-100 m-2 display flex"> 
                 <p class="p-4">{{post.title}}</p>
+                <button @click="handleDeletePost(post.id)" class="text-red">Delete</button>
             </li>
         </ul>
     </div>
@@ -18,16 +19,17 @@ import {mapGetters, mapActions} from 'vuex';
 export default {
     name: "PostsPage",
     data() {
-        return {
-            posts: [],
-        }
+        return { }
     },
     methods: {
-        ...mapActions(['fetchTodos']),
+        ...mapActions(['fetchTodos', 'deletePost']),
+        handleDeletePost(id) {
+            this.deletePost(id);
+        }
     },
     created: async function () {
         if (this.$store.state.Todos.todos.length == 0){
-            this.fetchTodos();
+            this.fetchTodos ();
         }
     },
     components: {
