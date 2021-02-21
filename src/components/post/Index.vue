@@ -26,7 +26,9 @@ export default {
         ...mapActions(['fetchTodos']),
     },
     created: async function () {
-       this.fetchTodos();
+        if (this.$store.state.Todos.todos.length == 0){
+            this.fetchTodos();
+        }
     },
     components: {
         Header

@@ -1,4 +1,4 @@
-import {fetchPosts} from '../../components/post/Api';
+import {fetchPosts, createPost} from '../../components/post/Api';
 
 const state = {
     todos: []
@@ -12,12 +12,19 @@ const actions = {
     async fetchTodos ({commit}) {
         const posts = await fetchPosts();
         commit('setTodos', posts);
+    },
+    async createTodo ({commit}, todo) {
+        const post = await createPost(todo);
+        // eslint-disable-next-line no-debugger
+        debugger;
+        commit('addPost', post);
     }
 };
 
 const mutations = {
     setTodos: (state, todos) => (state.todos = todos),
-    updateTodo: (state, todo) => (state.todos = state.todos.map(o => o.id === todo.id ? todo : o))
+    updateTodo: (state, todo) => (state.todos = state.todos.map(o => o.id === todo.id ? todo : o)),
+    addPost: (state, todo) => (state.todos.unshift(todo))
 };
 
 export default {
