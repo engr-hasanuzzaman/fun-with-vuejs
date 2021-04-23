@@ -13,12 +13,12 @@
         <button @click="toggleModal">Add new</button>
       </div>
       <TodoList
-        title="Pending"
+        title="Pending Todos"
         :todos="inCompletedTodo"
         @clicked="toggleStatus"
       ></TodoList>
       <TodoList
-        title="Completed"
+        title="Completed Todos"
         :todos="completedTodo"
         @clicked="toggleStatus"
       ></TodoList>
