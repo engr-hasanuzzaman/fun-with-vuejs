@@ -4,7 +4,7 @@ import Todos from '../components/Home';
 import PostsPage from '../components/post/Index';
 import NewPost from '../components/post/Form';
 // import Home from '../components/Ho'
-Vue.use(Router)
+Vue.use(Router);
 
 const routes = [
     { path: '/', component: PostsPage },
