@@ -1,4 +1,5 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { defineCustomElement } from 'vue'
+import TodoElement from './components/TodoElement.ce.vue'
 
-createApp(App).mount('#app')
+const TodoCompoent = defineCustomElement(TodoElement)
+customElements.define('todo-component', TodoCompoent)
