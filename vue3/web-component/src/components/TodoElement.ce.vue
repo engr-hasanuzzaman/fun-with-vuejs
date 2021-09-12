@@ -1,6 +1,6 @@
 <script setup>
     defineProps({
-        title: {
+        text: {
             type: String,
             required: true
         }
@@ -8,5 +8,5 @@
 </script>
 
 <template>
-    <p>{{ this.title }}</p>
+    <p>{{ text }}</p>
 </template>
