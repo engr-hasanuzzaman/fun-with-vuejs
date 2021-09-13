@@ -1,12 +1,27 @@
+<template>
+  <div class="todo-item">
+    <p>{{ title }}</p>
+    <input type="checkbox" name="status" id="" :checked="status" />
+  </div>
+</template>
+
 <script setup>
-    defineProps({
-        text: {
-            type: String,
-            required: true
-        }
-    })
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  status: {
+    type: Boolean,
+    required: true,
+  },
+});
 </script>
 
-<template>
-    <p>{{ text }}</p>
-</template>
+<style scoped>
+.todo-item {
+  display: flex;
+  border: 1px solid blue;
+  padding: 10px;
+}
+</style>

@@ -1,5 +1,5 @@
 import { defineCustomElement } from 'vue'
-import TodoElement from './components/TodoElement.ce.vue'
+import App from './App.ce.vue';
 
-const TodoCompoent = defineCustomElement(TodoElement)
+const TodoCompoent = defineCustomElement(App)
 customElements.define('todo-component', TodoCompoent)
