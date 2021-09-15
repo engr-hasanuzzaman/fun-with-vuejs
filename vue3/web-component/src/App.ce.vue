@@ -13,6 +13,7 @@
 <script>
 import { reactive } from "vue";
 import TodoElement from "./components/TodoElement.vue";
+import TodoElementForm from "./components/TodoElemnetForm.vue";
 
 export default {
   setup() {
@@ -47,6 +48,7 @@ export default {
   },
   components: {
     TodoElement,
+    TodoElementForm,
   },
 };
 </script>
