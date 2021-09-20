@@ -1,7 +1,7 @@
 <template>
     <div>
         <input type="text" name="title" id="" v-model="title">
-        <button @click="$emit('onNew', $event.target.value)">Add New</button>
+        <button @click="$emit('onNew', title)">Add New</button>
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 import { ref } from 'vue';
 
 export default {
-    name: 'TodoForm',
+    name: 'TodoElementForm',
     setup() {
         const title = ref('');
         

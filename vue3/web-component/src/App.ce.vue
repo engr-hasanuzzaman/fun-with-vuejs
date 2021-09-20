@@ -7,13 +7,15 @@
       :status="todo.status"
       @onComplete="handleComplete(todo.id)"
     />
+    <hr>
+    <TodoElementForm @onNew="onNewHandler" />
   </div>
 </template>
 
 <script>
 import { reactive } from "vue";
 import TodoElement from "./components/TodoElement.vue";
-import TodoElementForm from "./components/TodoElemnetForm.vue";
+import TodoElementForm from "./components/TodoElementForm.vue";
 
 export default {
   setup() {
@@ -34,17 +36,25 @@ export default {
     });
 
     // methods
-    function handleComplete(id) {
+    return {
+      ...state,
+      // handleComplete,
+      // onNewHandler
+    };
+  },
+  methods: {
+    handleComplete(id) {
       this.todos.forEach(todo => {
         if(todo.id === id) {
           todo.status = !todo.status;
         }
       });
+    },
+    onNewHandler (title) {
+      // eslint-disable-next-line no-debugger
+      debugger;
+      this.todos.push({ title, status: false});
     }
-    return {
-      ...state,
-      handleComplete
-    };
   },
   components: {
     TodoElement,
