@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <input type="text" name="title" id="" v-model="title">
-        <button @click="(e) => { $emit('onNew', title); title = ''}">Add New</button>
+    <div class="form-container">
+        <input type="text" name="title" id="" v-model="title" class="input">
+        <button @click="(e) => { $emit('onNew', title); title = ''}" class="btn">Add New</button>
     </div>
 </template>
 

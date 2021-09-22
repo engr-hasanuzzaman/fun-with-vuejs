@@ -80,4 +80,24 @@ export default {
 .todo-item--complete {
   text-decoration: line-through;
 }
+
+.form-container {
+  display: flex;
+}
+
+.form-container .btn {
+    margin-left: 10px;
+    background-color: darkslategray;
+    color: #ffffff;
+    padding: 5px;
+    border: 1px solid greenyellow;
+    border-radius: 6px;
+}
+
+.form-container .input {
+    flex: 1;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 18px;
+}
 </style>
