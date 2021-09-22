@@ -1,10 +1,10 @@
 <template>
-  <div class="todo-item">
+  <div class="todo-item" @click="$emit('onComplete')">
     <p :class="status ? 'todo-item--complete' : ''">{{ title }}</p>
     <input
       type="checkbox"
       name="status"
-      @click="$emit('onComplete')"
+      class="checkbox"
       :checked="status"
     />
   </div>

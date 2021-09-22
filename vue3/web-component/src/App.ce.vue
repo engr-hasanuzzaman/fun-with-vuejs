@@ -35,11 +35,8 @@ export default {
       todos: [...initialData]
     });
 
-    // methods
     return {
       ...state,
-      // handleComplete,
-      // onNewHandler
     };
   },
   methods: {
@@ -75,6 +72,11 @@ export default {
   align-items: center;
   justify-content: start;
   gap: 10px;
+  cursor: pointer;
+}
+
+.todo-item .checkbox {
+  cursor: pointer;
 }
 
 .todo-item--complete {
