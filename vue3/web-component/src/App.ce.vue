@@ -51,9 +51,7 @@ export default {
       });
     },
     onNewHandler (title) {
-      // eslint-disable-next-line no-debugger
-      debugger;
-      this.todos.push({ title, status: false});
+      this.todos.push({ title, status: false, id: this.todos.length + 1 });
     }
   },
   components: {
