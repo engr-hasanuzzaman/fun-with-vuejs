@@ -1,7 +1,14 @@
 <template>
     <div class="form-container">
-        <input type="text" name="title" id="" v-model="title" class="input">
-        <button @click="(e) => { $emit('onNew', title); title = ''}" class="btn">Add New</button>
+        <input 
+            type="text" 
+            name="title" 
+            id="" 
+            v-model="title" 
+            class="input" 
+            @keyup.enter="() => { createNew(title) }"
+        >
+        <button @click="createNew($event.target.value)" class="btn">Add New</button>
     </div>
 </template>
 
@@ -17,5 +24,11 @@ export default {
             title
         }        
     },
+    methods: {
+        createNew: function(title) {
+            this.$emit('onNew', title); 
+            this.title = '';
+        }
+    }
 }
 </script>
